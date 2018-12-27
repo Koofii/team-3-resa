@@ -1,0 +1,67 @@
+{
+    "whereTo": [
+    {
+        "id": 1,
+        "city": "Barcelona",
+        "country": "Spain",
+        "startDate": "2019-01-01",
+        "endDate": "2019-06-01",
+        "image": "./images/city.jpg",
+        "information": "Barcelona, the cosmopolitan capital of Spain’s Catalonia region, is known for its art and architecture. The fantastical Sagrada Família church and other modernist landmarks designed by Antoni Gaudí dot the city. Museu Picasso and Fundació Joan Miró feature modern art by their namesakes. City history museum MUHBA, includes several Roman archaeological sites."
+    },
+    {
+        "id": 2,
+        "city": "Chamonix",
+        "country": "France",
+        "startDate": "2019-01-01",
+        "endDate": "2019-05-01",
+        "image": "./images/winter.jpg",
+        "information": "Chamonix-Mont-Blanc (usually shortened to Chamonix) is a resort area near the junction of France, Switzerland and Italy. At the base of Mont Blanc, the highest summit in the Alps, it's renowned for its skiing. Year-round, cable cars take visitors up to several nearby peaks with panoramic views, including Aiguille du Midi above town, and Pointe Helbronner, across vast glacier fields on the Italian border."
+    },
+    {
+        "id": 3,
+        "city": "Bali",
+        "country": "Indonesien",
+        "startDate": "2019-01-01",
+        "endDate": "2019-03-01",
+        "image": "./images/bali.jpg",
+        "information": "Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs. The island is home to religious sites such as cliffside Uluwatu Temple. To the south, the beachside city of Kuta has lively bars, while Seminyak, Sanur and Nusa Dua are popular resort towns. The island is also known for its yoga and meditation retreats."
+    },
+    {
+        "id": 4,
+        "city": "Abisko",
+        "country": "Sweden",
+        "startDate": "2019-04-01",
+        "endDate": "2019-09-01",
+        "image": "./images/hike.jpg",
+        "information": "Abisko is a small village in Sweden, north of the Arctic Circle. Just out of town, extending from the southwestern shore of Torneträsk Lake, is Abisko National Park. Surrounded by mountains, it shelters lemmings and reindeer, plus the Lapp orchid. The King’s Trail begins in the park and leads to Hemavan, in the south. The Aurora Sky Station, on Mount Nuolja, is an observation center for the Northern Lights"
+    }],
+
+    "types": [
+        {
+            "id": 1,
+            "type": "sun and swim",
+            "places": [1, 3]
+        },
+        {
+            "id": 2,
+            "type": "winter",
+            "places":[2]
+        },
+        {
+            "id": 3,
+            "type": "shopping",
+            "places":[1]
+        },
+        {
+            "id": 4,
+            "type": "yoga",
+            "places":[3]
+        },
+        {
+            "id": 5,
+            "type": "hike",
+            "places":[3, 4]
+        }
+    ]
+}
