@@ -1,7 +1,10 @@
+const data = require('../data/where-to.json');
 
 exports.getAllDestinations = (req, res) => {
     // Hämta alla desinationer
-    res.status(200).json('OK')
+    
+    res.status(200).json(data)
+    
 }
 
 
