@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import Card from './card';
+import Restyp from '../sorting/restyp';
 
 
 export class TravelCards extends Component {
-    state = {
-        destinations: [],
-        currentDestinations: [], //on component-update, update sorted destinations here
-        error: null
-    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            destinations: [],
+            currentDestinations: [], //on component-update, update sorted destinations here
+            travelTypes: [],
+            error: null
+        };
+    }
 
     componentDidMount() {
         fetch('http://localhost:3001/getalldestinations')
@@ -15,14 +21,13 @@ export class TravelCards extends Component {
                 if (res.status === 200) {
                     return res.json();
                 }
-                throw new Error(`Something went wrong, received status: ${res.status}, message: ${res.statusText}`);
+                throw new Error(`Something went wrong, received status: ${res.status} and message: ${res.statusText}`);
             })
-            .then(data => {
-                this.setState({
-                    destinations: data.whereTo,       // keep the original list here, unchanged
-                    currentDestinations: data.whereTo // when the component first loads, put all destinations here, for initial rendering
-                })
-            })
+            .then(data => this.setState({
+                destinations: data.whereTo,       // keep the original list here, unchanged
+                currentDestinations: data.whereTo, // when the component first loads, put all destinations here, for initial rendering
+                travelTypes: data.types,
+            }))
             .catch(error => {
 
                 this.setState({
@@ -31,14 +36,25 @@ export class TravelCards extends Component {
             })
     };
 
+    changeDestinations(newCurrentDestinations) {
+        this.setState({ currentDestinations: newCurrentDestinations })
+    }
+
     render() {
         if (this.state.destinations.length > 0) {
             return (
-                <div className="cards-container">
+                <div>
+                    <div className="restyp-container">
+                        {this.state.travelTypes.map((type, i) => {
+                            return <Restyp key={i} changeDestinations={this.changeDestinations.bind(this)} currentDestinations={this.state.destinations} restyp={type} />
+                        })}
+                    </div>
+                    <div className="cards-container">
 
-                    {this.state.currentDestinations.map((destination, i) => {
-                        return <Card key={i} data={{ destination, i }} />
-                    })}
+                        {this.state.currentDestinations.map((destination, i) => {
+                            return <Card key={i} data={{ destination, i }} />
+                        })}
+                    </div>
                 </div>
             );
         } else {
@@ -47,4 +63,5 @@ export class TravelCards extends Component {
             )
         }
     }
+
 }
