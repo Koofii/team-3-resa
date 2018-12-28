@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {TravelCards} from "./components/travel-cards";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
          
        
         </header>
+        <TravelCards/>
       </div>
     );
   }
