@@ -1,0 +1,17 @@
+.header-whereto {
+    background-image: url('../../images/prag.jpg');
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    text-shadow: 4px 2px 10px black;
+    margin: 0;
+    font-family: 'Abril Fatface', cursive;
+    text-decoration: underline;
+    font-size: 100px;
+    color: rgb(235, 226, 226);
+}
