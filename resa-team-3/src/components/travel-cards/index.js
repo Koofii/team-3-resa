@@ -23,14 +23,19 @@ componentDidMount(){
     }))
 };
 
+    changeDestinations(newCurrentDestinations){
+        this.setState({ currentDestinations: newCurrentDestinations })
+    }
+
   render() {
       if(this.state.destinations.length > 0) {
         return (
             <div>
+                <div className="restyp-container">
                 {this.state.travelTypes.map((type, i) => {
-                    return <Restyp key={i} currentDestinations ={this.state.currentDestinations} restyp = {type} />
+                    return <Restyp key={i} changeDestinations = {this.changeDestinations.bind(this)} currentDestinations ={this.state.destinations} restyp = {type} />
                 })}
-
+                </div>
             <div className="cards-container">
               
               {this.state.currentDestinations.map((destination, i) => {
