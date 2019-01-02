@@ -27,7 +27,12 @@
     max-height: 9em;
 }
 
-.read-more-btn-container{
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-btn-box, .read-more-btn-box{
     align-self: flex-end;
     width: 5em;
     height: 2em;
@@ -37,7 +42,8 @@
     align-items: center;
 }
 
-.read-more-btn{
+
+.read-more-btn, .book-btn{
     text-decoration: none;
     color: black;   
 }
