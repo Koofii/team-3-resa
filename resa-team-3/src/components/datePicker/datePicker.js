@@ -1,6 +1,5 @@
 import React from 'react';
 import Calendar from 'react-calendar';
-import Card from '../travel-cards/card';
 import './datePicker.css'
 
 export class DatePicker extends React.Component{
@@ -12,16 +11,11 @@ export class DatePicker extends React.Component{
       };
     }
 
-      componentDidUpdate(){
-        console.log(this.state)
-      }
-
       showTrips(){
 
        let selectedStartDate = this.state.date[0].getTime()/1000;
        let selectedEndDate = this.state.date[1].getTime()/1000;
        let destinations = this.props.currentDestinations;
-       console.log(destinations);
        let availableDestinations = [];
 
         destinations.map((destination) => {
