@@ -1,6 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import Card from '../travel-cards/card';
+import './datePicker.css'
 
 export class DatePicker extends React.Component{
 

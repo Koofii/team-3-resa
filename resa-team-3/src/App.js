@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App">
         
           <Header/>
-          <TravelCards/>  
           <DatePicker/>
+          <TravelCards/>  
           <Footer />
                
       </div>
