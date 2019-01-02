@@ -3,7 +3,6 @@ import './restyp.css';
 
 class Restyp extends React.Component{
     handleTypes(){
-        console.log('andletypes', this.props)
         const {currentDestinations, restyp} = this.props;
         let newDestinations = [];
         newDestinations = restyp.places.map(place =>{
