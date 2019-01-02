@@ -11,11 +11,13 @@ export default class Card extends React.Component {
     }
     
     render() {
+        let destination = this.props.data.destination;
+
         return (
             <div key={this.props.data.i} className='card-body'>
             
-                <h4 className="card-title">{this.props.data.destination.city}, {this.props.data.destination.country}</h4>
-                <img className="card-img" src={this.props.data.destination.image} alt={this.props.data.destination.city}  />
+                <h4 className="card-title">{destination.city}, {destination.country}</h4>
+                <img className="card-img" src={destination.image} alt={destination.city}  />
                 <div className="btn-container">
                     <div className="book-btn-box" onClick={this.handleBooking.bind(this)}>
                         <a href="#" className="book-btn">Boka</a>
