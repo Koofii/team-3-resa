@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './card';
 import Restyp from '../sorting/restyp';
+import { DatePicker } from '../datePicker/datePicker';
 
 
 export class TravelCards extends Component {
@@ -44,6 +45,7 @@ export class TravelCards extends Component {
         if (this.state.destinations.length > 0) {
             return (
                 <div>
+                    <DatePicker currentDestinations={this.state.currentDestinations} changeDestinations={this.changeDestinations.bind(this)}/>
                     <div className="restyp-container">
                         {this.state.travelTypes.map((type, i) => {
                             return <Restyp key={i} changeDestinations={this.changeDestinations.bind(this)} currentDestinations={this.state.destinations} restyp={type} />

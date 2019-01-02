@@ -9,18 +9,8 @@ export class DatePicker extends React.Component{
     super(props);
     this.state = {
         date: new Date(),
-        destinations: [],
-        availableDestinations: []
       };
     }
-     
-      componentDidMount() {
-        fetch('http://localhost:3001/getalldestinations')
-        .then(res => res.json())
-        .then(data => this.setState({
-            destinations: data.whereTo,
-        }))
-      };
 
       componentDidUpdate(){
         console.log(this.state)
@@ -30,17 +20,18 @@ export class DatePicker extends React.Component{
 
        let selectedStartDate = this.state.date[0].getTime()/1000;
        let selectedEndDate = this.state.date[1].getTime()/1000;
-       let destinations = this.state.destinations;
+       let destinations = this.props.currentDestinations;
+       console.log(destinations);
        let availableDestinations = [];
 
         destinations.map((destination) => {
         let destinationStartdate = new Date(destination.startDate).getTime()/1000;
         let destinationEndDate = new Date(destination.endDate).getTime()/1000;
         if(selectedStartDate+86400 >= destinationStartdate && selectedEndDate < destinationEndDate+86400){
-            availableDestinations.push(destination);
-            this.setState({availableDestinations:availableDestinations})
+            availableDestinations.push(destination); 
         };
       });
+      this.props.changeDestinations(availableDestinations);
     }
 
       onChange = date => this.setState({ date })
@@ -56,12 +47,6 @@ export class DatePicker extends React.Component{
             />
 
            <button onClick={this.showTrips.bind(this)}>Search</button>
-          
-           <div className="cards-container">
-                {this.state.availableDestinations.map((destination, i) => {
-                  return <Card key={i} data={{destination, i}}/>
-                })}
-            </div>
           </div>
         );
       }
