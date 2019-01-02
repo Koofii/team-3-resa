@@ -2,9 +2,7 @@ const data = require('../data/where-to.json');
 
 exports.getAllDestinations = (req, res) => {
     // Hämta alla desinationer
-    
-    res.status(200).json(data)
-    
+    res.json(data)
 }
 
 
