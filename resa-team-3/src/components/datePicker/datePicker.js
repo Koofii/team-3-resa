@@ -1,6 +1,5 @@
 import React from 'react';
 import Calendar from 'react-calendar';
-import Card from '../travel-cards/card';
 import './datePicker.css'
 
 export class DatePicker extends React.Component{
@@ -12,27 +11,29 @@ export class DatePicker extends React.Component{
       };
     }
 
-      componentDidUpdate(){
-        console.log(this.state)
-      }
-
       showTrips(){
-
-       let selectedStartDate = this.state.date[0].getTime()/1000;
+       if(this.state.date[0] !==  undefined){
+     
+       let  selectedStartDate = this.state.date[0].getTime()/1000;
        let selectedEndDate = this.state.date[1].getTime()/1000;
        let destinations = this.props.currentDestinations;
-       console.log(destinations);
        let availableDestinations = [];
 
-        destinations.map((destination) => {
+        destinations.forEach(destination => {
         let destinationStartdate = new Date(destination.startDate).getTime()/1000;
         let destinationEndDate = new Date(destination.endDate).getTime()/1000;
         if(selectedStartDate+86400 >= destinationStartdate && selectedEndDate < destinationEndDate+86400){
             availableDestinations.push(destination); 
         };
-      });
-      this.props.changeDestinations(availableDestinations);
+        });
+        this.props.changeDestinations(availableDestinations);
     }
+
+    else {
+      alert('You need to pick a start and end date for your holiday')
+    }
+  }
+
 
       onChange = date => this.setState({ date })
       render() {
