@@ -11,8 +11,7 @@ class App extends Component {
         
           <Header/>
           <TravelCards/>  
-          <Footer />
-               
+          <Footer />           
       </div>
     );
   }
