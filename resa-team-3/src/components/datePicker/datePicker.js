@@ -12,16 +12,11 @@ export class DatePicker extends React.Component{
       };
     }
 
-      componentDidUpdate(){
-        console.log(this.state)
-      }
-
       showTrips(){
 
        let selectedStartDate = this.state.date[0].getTime()/1000;
        let selectedEndDate = this.state.date[1].getTime()/1000;
        let destinations = this.props.currentDestinations;
-       console.log(destinations);
        let availableDestinations = [];
 
         destinations.map((destination) => {
@@ -37,7 +32,7 @@ export class DatePicker extends React.Component{
       onChange = date => this.setState({ date })
       render() {
         return (
-          <div>
+          <div className="datepicker-container">
             <h2>Pick a date for your holiday</h2>
 
             <Calendar
@@ -46,7 +41,7 @@ export class DatePicker extends React.Component{
               selectRange={true}
             />
 
-           <button onClick={this.showTrips.bind(this)}>Search</button>
+            <button className="button-datepicker" onClick={this.showTrips.bind(this)}>Search</button>
           </div>
         );
       }
