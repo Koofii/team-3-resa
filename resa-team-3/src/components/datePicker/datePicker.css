@@ -4,6 +4,17 @@
 }
 
 h2{
-font-family: 'Abril Fatface', cursive;
-margin-left: 2em;
+    font-family: 'Abril Fatface', cursive;
+    margin-left: 2em;
+}
+
+.button-datepicker {
+    padding: 12px 20px;
+    margin-left: 3em;
+    background-color: #333;
+    color: white;
+}
+
+.datepicker-container{
+    display: block;
 }

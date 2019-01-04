@@ -38,7 +38,7 @@ export class DatePicker extends React.Component{
       onChange = date => this.setState({ date })
       render() {
         return (
-          <div>
+          <div className="datepicker-container">
             <h2>Pick a date for your holiday</h2>
 
             <Calendar
@@ -47,7 +47,7 @@ export class DatePicker extends React.Component{
               selectRange={true}
             />
 
-           <button onClick={this.showTrips.bind(this)}>Search</button>
+            <button className="button-datepicker" onClick={this.showTrips.bind(this)}>Search</button>
           </div>
         );
       }

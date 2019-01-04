@@ -1,0 +1,13 @@
+.sorting-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.restyp-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.whatever{
+    align-items: flex-end;
+    padding-top: 80px;
+}
