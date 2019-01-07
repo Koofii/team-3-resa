@@ -1,0 +1,74 @@
+{
+    "ratings": [
+    {
+        "id": 1,
+        "commentId": 1,
+        "rating": 5,
+        "name": "Jackson",
+        "comment": "Very good trip,i wish i would stay much longer!"
+    },
+    {
+        "id": 1,
+        "commentId": 2,
+        "rating": 4,
+        "name": "Matilda",
+        "comment": "Good place to travel with family but expencive..."
+    },
+    {
+        "id": 2,
+        "commentId": 3,
+        "rating": 1,
+        "name": "Jackson",
+        "comment": "I dont like this trip! Very baad food and service"
+    },
+    {
+        "id": 2,
+        "commentId": 4,
+        "rating": 5,
+        "name": "Pelle",
+        "comment": "Best trip!"
+    },
+    {
+        "id": 3,
+        "commentId": 5,
+        "rating": 1,
+        "name": "Anna",
+        "comment": "Bad service , ugly rooms and bad food! "
+    },
+    {
+        "id": 3,
+        "commentId": 6,
+        "rating": 5,
+        "name": "Peter",
+        "comment": "I dont remember,i was to drunk. But my frends says i had fun:D "
+    },
+    {
+        "id": 4,
+        "commentId":7,
+        "rating": 1,
+        "name": "Karolina",
+        "comment": "Good shops and bars. Real party place! Also nice beach!"
+    },
+    {
+        "id": 4,
+        "commentId": 8,
+        "rating": 5,
+        "name": "Peter",
+        "comment": "I dont remember,i was to drunk. But my frends says i had fun:D "
+    },
+    {
+        "id": 5,
+        "commentId":9,
+        "rating": 5,
+        "name": "Igor",
+        "comment": "If u want lux , this trip is for you:) Very nice place"
+    },
+    {
+        "id": 5,
+        "commentId": 10,
+        "rating": 3,
+        "name": "Peter",
+        "comment": "Beatiful place,good food but very far from the shops. Need to take a buss 30m to get in the center"
+    }
+]
+}

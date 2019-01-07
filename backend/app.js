@@ -22,7 +22,9 @@ app.use((req, res, next) => {
 });
 
 const destinationRoutes = require('./routes/destinations')
+const ratingRoutes = require('./routes/ratings')
 
 app.use('/', destinationRoutes)
+app.use('/', ratingRoutes)
 
 module.exports = app;
