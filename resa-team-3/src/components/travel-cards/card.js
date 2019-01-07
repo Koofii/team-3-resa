@@ -3,11 +3,18 @@ import './card.css';
 
 export default class Card extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
+
+        this.showTravelInfo = this.showTravelInfo.bind(this);
     }
 
     handleBooking() {
         alert(`Resa till ${this.props.data.destination.city} bokat! Trevlig resa`)
+    }
+
+    showTravelInfo(e){
+        e.preventDefault();
+        this.props.showItem(this.props.data.destination)
     }
     
     render() {
@@ -23,7 +30,7 @@ export default class Card extends React.Component {
                         <a href="#" className="book-btn">Boka</a>
                     </div>
                     <div className="read-more-btn-box">
-                        <a href="#" className="read-more-btn">Läs mer</a>
+                        <a onClick={this.showTravelInfo} href="#" className="read-more-btn">Läs mer</a>
                     </div>
                 </div>
             </div>

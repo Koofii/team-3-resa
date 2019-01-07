@@ -3,6 +3,7 @@ import Card from './card';
 import Restyp from '../sorting/restyp';
 import { DatePicker } from '../datePicker/datePicker';
 import './sorting.css'
+import TravelInfo from '../travelInfo';
 
 
 export class TravelCards extends Component {
@@ -13,8 +14,12 @@ export class TravelCards extends Component {
             destinations: [],
             currentDestinations: [], //on component-update, update sorted destinations here
             travelTypes: [],
-            error: null
+            error: null,
+            item: {},
+            showItem: false
         };
+        this.showItem = this.showItem.bind(this);
+        this.changeView = this.changeView.bind(this);
     }
 
     componentDidMount() {
@@ -37,12 +42,23 @@ export class TravelCards extends Component {
                 })
             })
     };
+    
+    showItem(travelpoint){
+        this.setState({ item: travelpoint, showItem: true })
+    }
 
     changeDestinations(newCurrentDestinations) {
         this.setState({ currentDestinations: newCurrentDestinations })
     }
 
+    changeView(){
+        this.setState({item: {}, showItem: false})
+    }
+
     render() {
+        if(this.state.showItem){
+            return ( <TravelInfo changeView={this.changeView} item={this.state.item}/> )
+        }
         if (this.state.destinations.length > 0) {
             return (
                 <div>
@@ -59,7 +75,7 @@ export class TravelCards extends Component {
                     <div className="cards-container">
 
                         {this.state.currentDestinations.map((destination, i) => {
-                            return <Card key={i} data={{ destination, i }} />
+                            return <Card key={i} data={{ destination, i }} showItem={this.showItem} />
                         })}
                     </div>
                 </div>
