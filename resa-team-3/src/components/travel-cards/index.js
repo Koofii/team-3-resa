@@ -92,9 +92,7 @@ export class TravelCards extends Component {
     }
 
     getCurrentDestinations(destinationIds) {
-        
         return this.state.destinations.filter(destination => {
-            
             let index = destinationIds.indexOf(destination.id)
             return index !== -1
         })
@@ -102,10 +100,8 @@ export class TravelCards extends Component {
 
     filterDestinations(filter) {
         const travelTypes = this.getCurrentTravelTypes(filter)
-        
         const destinationIds = this.getCurrentDestinationIds(travelTypes)
         const destinations = this.getCurrentDestinations(destinationIds)
-        
         return destinations
     }
 
