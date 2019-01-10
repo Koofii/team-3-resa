@@ -1,20 +1,12 @@
 import React from 'react';
 import './restyp.css';
 
-class Restyp extends React.Component{
-    handleTypes(){
-        const {currentDestinations, restyp} = this.props;
-        let newDestinations = [];
-        newDestinations = restyp.places.map(place =>{
-            let newArray = currentDestinations.filter(destination => destination.id === place)
-            return newArray[0];
-        });
-        this.props.changeDestinations(newDestinations);
-    }
-    render(){
-        const {restyp} = this.props 
-        return(
-            <div className ="restyper" onClick= {this.handleTypes.bind(this)}>{restyp.type}</div>
+class Restyp extends React.Component {
+
+
+    render() {
+        return (
+            <div className={`restyp ${this.props.active ? "active" : ""}`} onClick={this.props.toggleActive}>{this.props.type}</div>
         )
     }
 }
