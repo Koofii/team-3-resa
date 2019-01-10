@@ -1,5 +1,7 @@
 import React from 'react';
 import './index.css'
+import Information from './information';
+import Image from './image';
 
 class TravelInfo extends React.Component {
 
@@ -15,7 +17,15 @@ class TravelInfo extends React.Component {
         return(
             <div>
                 <div>
+                    <div className="btn-container-dos">
                     <button className="btn-gb" onClick={() => this.props.changeView()}>Go Back!</button>
+                    <button className="btn-gb" onClick={() => alert('Bokat och klart, treflig resa!')}>Boka nu</button>
+
+                    </div>
+                    <div className="information-container">
+                        <Image image = {item.image} /> 
+                        <Information text = {item.information} />
+                    </div>
                 </div>
             </div>
         )

@@ -1,5 +1,37 @@
 .btn-gb {
     background-color: #333;
     color: white;
-    padding: 8px 12px;
+    padding: 16px 24px;
+}
+.image-container{
+    display: block;
+    padding: 50px;
+}
+
+.btn-container-dos {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.information-text{
+    padding:50px;
+}
+
+.mainImage{
+    width: 100%;
+    height: auto;
+}
+
+.subImage{
+    width: 32%;
+    height: auto;
+    margin-right: 4px;
+    
+}
+
+.information-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 auto;
 }
