@@ -4,15 +4,19 @@ import Restyp from '../sorting/restyp';
 import { DatePicker } from '../datePicker/datePicker';
 import './sorting.css'
 import TravelInfo from '../travelInfo';
+import Filter from '../sorting/restyperContainer';
+import _ from 'lodash';
 
 
 export class TravelCards extends Component {
 
     constructor(props) {
         super(props);
+        
         this.state = {
             destinations: [],
             currentDestinations: [], //on component-update, update sorted destinations here
+            currentFilter: [],
             travelTypes: [],
             error: null,
             item: {},
@@ -42,20 +46,71 @@ export class TravelCards extends Component {
                 })
             })
     };
-    
-    showItem(travelpoint){
-        this.setState({ item: travelpoint, showItem: true })
-    }
 
     changeDestinations(newCurrentDestinations) {
         this.setState({ currentDestinations: newCurrentDestinations })
     }
-
+    
+    showItem(travelpoint){
+        this.setState({ item: travelpoint, showItem: true })
+    }
+ 
     changeView(){
         this.setState({item: {}, showItem: false})
     }
 
+
+    // ----------- sorting and filtering:
+
+    handleClearFilter(){
+        this.setState({
+            currentFilter: [],
+            currentDestinations: this.state.destinations
+        })
+    }
+
+    setFilter(updatedFilter) {
+        const destinations = this.filterDestinations(updatedFilter)
+        this.setState({
+            currentFilter: updatedFilter,
+            currentDestinations: destinations
+        })
+    }
+
+    getCurrentTravelTypes(currentFilter){
+        return this.state.travelTypes.filter(travelType => {
+             let index = currentFilter.indexOf(travelType.id)
+             return index !== -1
+         })
+     }
+
+    getCurrentDestinationIds(travelTypes) {
+       return travelTypes.map(type => type.places)
+       .reduce((acc, curr) => {           
+            return _.intersection(acc, curr)
+       }, travelTypes[0].places)
+    }
+
+    getCurrentDestinations(destinationIds) {
+        
+        return this.state.destinations.filter(destination => {
+            
+            let index = destinationIds.indexOf(destination.id)
+            return index !== -1
+        })
+    }
+
+    filterDestinations(filter) {
+        const travelTypes = this.getCurrentTravelTypes(filter)
+        
+        const destinationIds = this.getCurrentDestinationIds(travelTypes)
+        const destinations = this.getCurrentDestinations(destinationIds)
+        
+        return destinations
+    }
+
     render() {
+
         if(this.state.showItem){
             return ( <TravelInfo changeView={this.changeView} item={this.state.item}/> )
         }
@@ -65,15 +120,16 @@ export class TravelCards extends Component {
                     <div className="sorting-container">
                         <DatePicker currentDestinations={this.state.currentDestinations} changeDestinations={this.changeDestinations.bind(this)}/>
                         <div className="whatever">
-                            <div className="restyp-container">
-                                {this.state.travelTypes.map((type, i) => {
-                                    return <Restyp key={i} changeDestinations={this.changeDestinations.bind(this)} currentDestinations={this.state.destinations} restyp={type} />
-                                })}
-                            </div>
+                            <Filter 
+                            types={this.state.travelTypes} 
+                            currentFilter={this.state.currentFilter}
+                            setFilter={this.setFilter.bind(this)}
+                            clearFilter={this.handleClearFilter.bind(this)}
+                            />
                         </div>
                     </div>
                     <div className="cards-container">
-
+                        {this.state.currentDestinations.length < 1 ? <p>No hits, try different search criterias</p> : ""}
                         {this.state.currentDestinations.map((destination, i) => {
                             return <Card key={i} data={{ destination, i }} showItem={this.showItem} />
                         })}
