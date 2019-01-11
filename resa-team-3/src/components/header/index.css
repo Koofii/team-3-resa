@@ -1,10 +1,25 @@
 .header-whereto {
     background-image: url('../../images/prag.jpg');
     background-size: cover;
-    height: 500px;
+    height: 71vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+.header-whereto:after{
+    border-top: 45px solid #333;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    bottom: 0px;
+    content: "";
+    position: absolute;
+    left: 45%;
+    top: 71vh;
+    margin-left: -21px;
+    width: 0;
+    height: 0;
 }
 
 .logo {
