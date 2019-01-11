@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css'
 import Information from './information';
 import Image from './image';
+import Ratings from './rating';
 
 class TravelInfo extends React.Component {
 
@@ -26,6 +27,7 @@ class TravelInfo extends React.Component {
                         <Image image = {item.image} /> 
                         <Information text = {item.information} />
                     </div>
+                    <Ratings id={item.id}/>
                 </div>
             </div>
         )
