@@ -1,7 +1,7 @@
-const data = require('../data/ratings');
+const data = require('../data/ratings.json');
 
 exports.getAllRatings = (req, res) => {
     // Hämta alla ratings
-    res.json(data)
+    res.json(data.ratings)
 }
 
