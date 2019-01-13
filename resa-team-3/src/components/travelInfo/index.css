@@ -51,3 +51,15 @@
     padding: 1em;
     width: 40%;
 }
+
+.similarDestinations{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 6% 6% 6%; 
+    justify-content: flex-start;   
+}
+
+.similarDestinationsTitle{
+    margin: 3em;
+    border-bottom: 1px solid lightgray;
+}

@@ -3,6 +3,7 @@ import './index.css'
 import Information from './information';
 import Image from './image';
 import Ratings from './rating';
+import SimilarDestinations from './similar-destinations';
 
 class TravelInfo extends React.Component {
 
@@ -26,6 +27,10 @@ class TravelInfo extends React.Component {
                     <div className="information-container">
                         <Image image = {item.image} /> 
                         <Information text = {item.information} />
+                    </div>
+                    <h3 className="similarDestinationsTitle">Liknande resmål:</h3>
+                    <div className="similarDestinations">
+                        <SimilarDestinations destination={item} showItem={this.props.showItem} getSimilarDestinations={this.props.getSimilarDestinations} />
                     </div>
                     <Ratings id={item.id}/>
                 </div>

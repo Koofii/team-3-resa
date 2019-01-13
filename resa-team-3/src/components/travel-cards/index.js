@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from './card';
-import Restyp from '../sorting/restyp';
 import { DatePicker } from '../datePicker/datePicker';
 import './sorting.css'
 import TravelInfo from '../travelInfo';
@@ -78,6 +77,7 @@ export class TravelCards extends Component {
     }
 
     getCurrentTravelTypes(currentFilter){
+        
         return this.state.travelTypes.filter(travelType => {
              let index = currentFilter.indexOf(travelType.id)
              return index !== -1
@@ -100,6 +100,8 @@ export class TravelCards extends Component {
         })
     }
 
+    
+
     filterDestinations(filter) {
         const travelTypes = this.getCurrentTravelTypes(filter)
         
@@ -109,10 +111,41 @@ export class TravelCards extends Component {
         return destinations
     }
 
+    // Similar destinations
+    getTravelTypes(destinationId){
+        return this.state.travelTypes.filter(type => {
+           let index = type.places.indexOf(destinationId)
+           
+            return index !== -1
+        })
+    }
+
+    getDestinationIds(traveltypes){
+        return traveltypes.map(type => type.places).flat()
+    }
+
+    getDestinations(destinationIds){
+        
+        return this.state.destinations.filter(destination => {
+            let index = destinationIds.indexOf(destination.id)
+            return index !== -1
+        })
+    }
+
+    getSimilarDestinations(destinationId){
+        
+        const travelTypes = this.getTravelTypes(destinationId.id)
+        
+        const destinationIds = this.getDestinationIds(travelTypes)
+        
+        const destinations = this.getDestinations(destinationIds)
+        return destinations
+    }
+
     render() {
 
         if(this.state.showItem){
-            return ( <TravelInfo changeView={this.changeView} item={this.state.item}/> )
+            return ( <TravelInfo changeView={this.changeView} item={this.state.item} showItem={this.showItem} getSimilarDestinations={this.getSimilarDestinations.bind(this)} /> )
         }
         if (this.state.destinations.length > 0) {
             return (
