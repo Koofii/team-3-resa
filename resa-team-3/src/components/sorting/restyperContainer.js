@@ -15,14 +15,14 @@ export default class Filter extends React.Component {
 
     toggleActive(id){
         const index = this.props.currentFilter.indexOf(id)
-        console.log('toggleactive id', id)
+        
         if(index !== -1){
             if(this.props.currentFilter.length > 1){
-                console.log('if körs')
+                
                 let removedItem = this.props.currentFilter.splice(index, 1)
                 this.props.setFilter(this.props.currentFilter)
             } else {
-                console.log('else körs')
+                
                 this.props.clearFilter()
             }
         } else {
